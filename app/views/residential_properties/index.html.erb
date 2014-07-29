@@ -1,0 +1,27 @@
+<h1>Residential Properties</h1>
+
+<%= search_form_for @search do |f| %>
+  <%= f.condition_fields do |c| %>
+  <div class="field">
+    <%= c.attribute_fields do |a| %>
+      <%= a.attribute_select %>
+    <% end %>
+    <%= c.predicate_select %>
+    <%= c.value_fields do |v| %>
+      <%= v.text_field :value %>
+    <% end %>
+    </div>
+  <% end %>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
+<ol style="list-style:none;padding:0;">
+  <% @residential_properties.each do |property| %>
+    <li style="background:#f2f2f2;margin:0px 20px 20px 0px;padding:10px 5px 10px 10px;display:inline-block;width:300px;border-radius:5px;line-height:1.35;">
+      <strong><%= link_to "#{property.street_number} #{property.street_name}, #{property.city}", property.public_listing_url %></strong> – <strong><%= number_to_currency(property.listing_price, precision: 0) %></strong><br>
+      <strong><%= property.bedrooms %></strong> Bedrooms, <strong><%= property.bathrooms %></strong> Bathrooms<br>
+      Subdivision <strong><%= property.subdivision %></strong><br>
+      <small style="color:#888">MLS #<%= property.ml_number %><br>Updated <%= property.last_modified_date_time.to_formatted_s(:long_ordinal) %></small>
+    </li>
+  <% end %>
+</ol>

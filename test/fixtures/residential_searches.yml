@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  acres: 9.99
+  area: MyString
+  bathrooms: 9.99
+  bedrooms: 9.99
+
+two:
+  acres: 9.99
+  area: MyString
+  bathrooms: 9.99
+  bedrooms: 9.99

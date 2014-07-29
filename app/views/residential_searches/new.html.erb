@@ -1,0 +1,14 @@
+<h1>Advanced Residential Search</h1>
+
+<%= form_for @residential_search do |f| %>
+  <div class="field">
+    <%= f.label :subdivision %><br />
+    <%= f.text_field :subdivision, size: 10 %>
+  </div>
+  <div class="field">
+    <%= f.label :min_listing_price, "Price Range" %><br />
+    <%= f.text_field :min_listing_price, size: 10 %> -
+    <%= f.text_field :max_listing_price, size: 10 %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
