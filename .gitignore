@@ -17,3 +17,12 @@
 
 # Ignore RETS credentials
 /config/initializers/rets.rb
+
+# Ignore Vagrant
+Vagrantfile
+/.vagrant
+
+# Ignore Chef
+Cheffile
+Cheffile.lock
+/cookbooks
