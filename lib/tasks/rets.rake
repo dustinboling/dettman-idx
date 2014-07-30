@@ -18,6 +18,12 @@ namespace :rets do
       end
 
       def set_rets_client
+
+        puts "Login URL: #{ENV['RETS_LOGIN_URL']}"
+        puts "Agent: #{ENV['RETS_AGENT']}"
+        puts "Username: #{ENV['RETS_USERNAME']}"
+        puts "Password: #{ENV['RETS_PASSWORD']}"
+
         @client = Rets::Client.new(
           :login_url => ENV['RETS_LOGIN_URL'],
           :agent => ENV['RETS_AGENT'],
