@@ -15,13 +15,43 @@
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 
-<ol style="list-style:none;padding:0;">
-  <% @residential_properties.each do |property| %>
-    <li style="background:#f2f2f2;margin:0px 20px 20px 0px;padding:10px 5px 10px 10px;display:inline-block;width:300px;border-radius:5px;line-height:1.35;">
-      <strong><%= link_to "#{property.street_number} #{property.street_name}, #{property.city}", property.public_listing_url %></strong> – <strong><%= number_to_currency(property.listing_price, precision: 0) %></strong><br>
-      <strong><%= property.bedrooms %></strong> Bedrooms, <strong><%= property.bathrooms %></strong> Bathrooms<br>
-      Subdivision <strong><%= property.subdivision %></strong><br>
-      <small style="color:#888">MLS #<%= property.ml_number %><br>Updated <%= property.last_modified_date_time.to_formatted_s(:long_ordinal) %></small>
-    </li>
-  <% end %>
-</ol>
+<table>
+	<caption>Residential Search Results</caption>
+	<thead>
+		<tr>
+			<th>Listing Price</th>
+			<th>Address</th>
+			<th>Bedrooms</th>
+			<th>Bathrooms</th>
+			<th>Subdivision</th>
+			<th>MLS #</th>
+			<th>Last Modified</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td>Listing Price</td>
+			<td>Address</td>
+			<td>Bedrooms</td>
+			<td>Bathrooms</td>
+			<td>Subdivision</td>
+			<td>MLS #</td>
+			<td>Last Modified</td>
+		</tr>
+	</tfoot>
+	<tbody>
+		<% @residential_properties.each do |property| %>
+		<tr>
+			<td><%= number_to_currency(property.listing_price, precision: 0) %></td>
+			<td><%= link_to "#{property.street_number} #{property.street_name}, #{property.city}", property.public_listing_url %></td>
+			<td><%= property.bedrooms %></td>
+			<td><%= property.bathrooms %></td>
+			<td><%= property.subdivision %></td>
+			<td><%= property.ml_number %></td>
+			<td><%= property.last_modified_date_time.to_formatted_s(:long_ordinal) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+  
