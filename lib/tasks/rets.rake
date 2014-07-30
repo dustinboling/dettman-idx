@@ -60,6 +60,10 @@ namespace :rets do
         end
       end
 
+      def association_to_board_association(key)
+        if key == "association" then "board_association" else key end
+      end
+
     end
   end
 end
