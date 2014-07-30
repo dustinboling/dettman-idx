@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get '/rets_imports/residential', to: 'rets_imports#residential'
 
   resources :rets_imports
   resources :residential_properties
   resources :residential_searches
+
+  root 'residential_properties#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
